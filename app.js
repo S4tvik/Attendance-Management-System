@@ -107,7 +107,8 @@ app.post('/check', function (req, res) {
 
 app.get('/student-home',function(req,res){
 	if (req.session.loggedin) {
-		res.sendfile(__dirname+"/student_home.html",{percentage:'95'});
+        var percentage='95';
+		res.render(__dirname+"/student_home.ejs",{percentage: percentage});
 	}else{
 		res.send("first login idiot");
 	}
