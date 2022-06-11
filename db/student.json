@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "62a01144d724c26955c09b85"
+  },
+  "name": "Shahbaz Jahan",
+  "class": "cse1",
+  "sid": "160120733050"
+},{
+  "_id": {
+    "$oid": "62a0115f9192cbea5debf1af"
+  },
+  "name": "sadik yadav",
+  "class": "cse1",
+  "sid": "160120733049"
+},{
+  "_id": {
+    "$oid": "62a011768ba33fb83d6a92fc"
+  },
+  "name": "pranav",
+  "class": "cse1",
+  "sid": "160120733037"
+},{
+  "_id": {
+    "$oid": "62a0119c6a06095c5182c0de"
+  },
+  "name": "pavan",
+  "class": "cse1",
+  "sid": "160120733035"
+},{
+  "_id": {
+    "$oid": "62a011a5ffb3c49213849857"
+  },
+  "name": "jahnavi manoj",
+  "class": "cse1",
+  "sid": "160120733003"
+},{
+  "_id": {
+    "$oid": "62a011bb30ae5a284b5b68c8"
+  },
+  "name": "jahnavi reddy",
+  "class": "cse1",
+  "sid": "160120733004"
+}]
