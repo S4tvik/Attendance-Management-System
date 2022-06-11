@@ -15,7 +15,7 @@
     <nav class="navbar" style="background-color:#faf1f9;">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">Attendance Management System</a>
-          <button type="button" class="btn btn-outline-info">Logout</button>
+          <button type="button" class="btn btn-outline-info" onclick="logout()">Logout</button>
         </div>
       </nav> 
       <br><br> 
@@ -45,18 +45,13 @@
                 <th scope="row">1</th>
                 <td>IWT</td>
                 <td>Srikanth</td>
-                <td>Percentage</td>
+                <td name="percentage1"><%=percentage1%></td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>DAA</td>
-                <td>name</td>
-                <td>Percentage</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">IWT lab</td>
-                <td >percentage</td>
+                <td>Abdul Bari</td>
+                <td name="percentage2"><%=percentage2%></td>
               </tr>
             </tbody>
           </table>
@@ -71,7 +66,12 @@
         <h4>Less than 65%: Detained</h4>
         <h4></h4>
         <h4></h4>
-    </div>    
+    </div>
+    <script>
+        function logout(){
+          window.location.href="/logout";
+        }
+    </script>
 </body>
 </html>
 

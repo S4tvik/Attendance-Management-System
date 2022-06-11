@@ -62,7 +62,7 @@ MongoClient.connect(url, function (err, db) {
 });
 
 app.get('/', function (req, res) {
-    res.sendfile('login.html');
+    res.sendFile(__dirname+'/login.html');
 });
 
 app.post('/check', function (req, res) {
@@ -88,11 +88,13 @@ app.post('/check', function (req, res) {
                         if (result[0].password == pword && result[0].type == "student") {
                             req.session.loggedin = true;
                             req.session.username = uname;
+                            req.session.type="student";
                             res.redirect("/student-home");
                         }
                         if (result[0].password == pword && result[0].type == "teacher") {
                             req.session.loggedin = true;
                             req.session.username = uname;
+                            req.session.type="teacher";
                             res.redirect("/teacher-home");
                         }
                     }
@@ -102,98 +104,120 @@ app.post('/check', function (req, res) {
         });
     }
     else {
-        res.send("enter details idiot");
+        res.sendFile(__dirname +'/login1.html');
     }
 });
 
 app.get('/student-home', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="student") {
         uname = req.session.username;
+        var percentage=0;
+        var length1=0
+        var percentage1=0;
+        var length2=0;
+        var percentage2=0;
         MongoClient.connect(url, function (err, db) {
             if (err) throw err;
             dbo = db.db("firstdb");
-            var query = { sid: uname };
-            dbo.collection("attendance").find(query).toArray(function (err, result) {
+            var query = { sid: uname,course:"iwt"};
+            dbo.collection("attendance").find(query).toArray(function (err, result1) {
                 if (err) throw err;
                 var total_classes_attended = 0;
-                for (let i = 0; i < result.length; i++) {
-                    if (result[i].present == "1") {
+                length1=result1.length;
+                for (let i = 0; i < length1; i++) {
+                    if (result1[i].present == "1") {
                         total_classes_attended += 1;
                     }
                 }
-                // console.log(result.length);
-                // console.log(total_classes_attended);
-                var percent = total_classes_attended * 100 / result.length;
-                var percentage=parseFloat(percent).toFixed(2)+"%";
-                res.render(__dirname + "/student_home.ejs", { percentage: percentage, uname: uname });
-                db.close;
+                percentage1= total_classes_attended * 100 / length1;
+                
             });
+
+            var query = { sid: uname,course:"daa"};
+            dbo.collection("attendance").find(query).toArray(function (err, result2) {
+                if (err) throw err;
+                var total_classes_attended = 0;
+                length2=result2.length;
+                for (let i = 0; i < length2; i++) {
+                    if (result2[i].present == "1") {
+                        total_classes_attended += 1;
+                    }
+                }
+                var percentage2=total_classes_attended * 100 / length2;
+                percentage=((percentage1*length1+percentage2*length2)/(length1+length2)).toFixed(2);
+                res.render(__dirname + "/student_home.ejs", { percentage: percentage, uname: uname ,percentage1:percentage1,percentage2:percentage2});
+            });
+            db.close;
         });
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
+app.get('/logout',function(req,res){
+    req.session.loggedin=false;
+    res.sendFile(__dirname+"/login.html");
+});
 app.get('/teacher-home', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         uname = req.session.username;
         res.render(__dirname + "/teacher_home.ejs", { uname: uname });
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.get('/teacher-class', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         res.render(__dirname + "/teacher_class.ejs", { uname: uname });
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.get('/teacher-form', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         date = req.session.date;
         res.render(__dirname + "/teacher_form.ejs", { date: date });
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.get('/teacher-form1', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         req.session.date = "10-06-2022";
         res.redirect("/teacher-form");
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.get('/teacher-form2', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         req.session.date = "11-06-2022";
         res.redirect("/teacher-form");
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.get('/teacher-form3', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         req.session.date = "12-06-2022";
         res.redirect("/teacher-form");
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.get('/teacher-form4', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         req.session.date = "13-06-2022";
         res.redirect("/teacher-form");
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.get('/teacher-form5', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type=="teacher") {
         req.session.date = "14-06-2022";
         res.redirect("/teacher-form");
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 app.post('/attendance-submit', function (req, res) {
@@ -239,7 +263,7 @@ app.post('/attendance-submit', function (req, res) {
         });
         res.redirect("/teacher-class");
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname+"/notloggedin.html");
     }
 });
 
