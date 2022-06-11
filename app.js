@@ -86,18 +86,24 @@ app.post('/check', function (req, res) {
                 if (result.length == 0) {
                     res.send('Incorrect username  or password');
                 }
-                if (err) throw err;
-                // console.log(result[0].username);
-                // console.log(result[0].password);
-                if (result[0].password == pword && result[0].type=="student") {
-                    req.session.loggedin=true;
-                    req.session.username=uname;
-                    res.redirect("/student-home");
-                }
-                if (result[0].password == pword && result[0].type=="teacher") {
-                    req.session.loggedin=true;
-                    req.session.username=uname;
-                    res.redirect("/teacher-home");
+                else
+                {
+                    if (err) throw err;
+                    // console.log(result[0].username);
+                    // console.log(result[0].password);
+                    else
+                    {
+                        if (result[0].password == pword && result[0].type=="student") {
+                            req.session.loggedin=true;
+                            req.session.username=uname;
+                            res.redirect("/student-home");
+                        }
+                        if (result[0].password == pword && result[0].type=="teacher") {
+                            req.session.loggedin=true;
+                            req.session.username=uname;
+                            res.redirect("/teacher-home");
+                        }
+                    }
                 }
                 db.close;
             });
