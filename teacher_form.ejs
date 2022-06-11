@@ -1,48 +1,96 @@
-<!-- this is teachers form page -->
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-</head>
+
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+  </head>
 
 <body>
-  <h2 name="uname">
-    <%=uname%>
-  </h2>
 
-  <h2 id="date">
-    <%=date%>
-  </h2>
-  <form id="forminput" action="/attendance-submit" method="post">
-    <label id="name1" name="name1">160120733003</label>
-    <input type="radio" id="attendance1" name="attendance1" checked="true" value="1">Present
-    <input type="radio" id="attendance1" name="attendance1" value="0">Absent
-    <br />
-    <label id="name2" name="name2">160120733004</label>
-    <input type="radio" id="attendance2" name="attendance2" checked="true" value="1">Present
-    <input type="radio" id="attendance2" name="attendance2" value="0">Absent
-    <br />
-    <label id="name3" name="name3">160120733035</label>
-    <input type="radio" id="attendance3" name="attendance3" checked="true" value="1">Present
-    <input type="radio" id="attendance3" name="attendance3" value="0">Absent
-    <br />
-    <label id="name4" name="name4">160120733037</label>
-    <input type="radio" id="attendance4" name="attendance4" checked="true" value="1">Present
-    <input type="radio" id="attendance4" name="attendance4" value="0">Absent
-    <br />
-    <label id="name5" name="name5">160120733049</label>
-    <input type="radio" id="attendance5" name="attendance5" checked="true" value="1">Present
-    <input type="radio" id="attendance5" name="attendance5" value="0">Absent
-    <br />
-    <label id="name6" name="name6">160120733050</label>
-    <input type="radio" id="attendance6" name="attendance6" checked="true" value="1">Present
-    <input type="radio" id="attendance6" name="attendance6" value="0">Absent
-    <br>
-    <input type="submit">
-  </form>
-</body>
+  <body>
+    <nav class="navbar" style="background-color: #faf1f9">
+      <div class="container-fluid">
+        <h4 style="font-family: 'Joan', serif">Attendace Management System</h4>
+        <a class="btn btn-primary" href="/teacher-class" role="button">back</a>
+      </div>
+    </nav>
+
+    <form action="/attendance-submit" method="post">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">sno</th>
+            <th scope="col">NAME OF THE STUDENT</th>
+            <th>present/absent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>shah</td>
+            <td>
+              <input type="radio" name="attendance1" value="Present" />Present
+              <input type="radio" name="attendance1" value="Absent" />Absent
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+
+            <td>sadik</td>
+            <td>
+              <input type="radio" name="attendance2" value="Present" />Present
+              <input type="radio" name="attendance2" value="Absent" />Absent
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td> pronav</td>
+            <td>
+              <input type="radio" name="attendance3" value="Present" />Present
+              <input type="radio" name="attendance3" value="Absent" />Absent
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+
+            <td>pavan</td>
+            <td>
+              <input type="radio" name="attendance4" value="Present" />Present
+              <input type="radio" name="attendance4" value="Absent" />Absent
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>GRAY</td>
+            <td>
+              <input type="radio" name="attendance5" value="Present" />Present
+              <input type="radio" name="attendance5" value="Absent" />Absent
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>manoj</td>
+            <td>
+              <input type="radio" name="attendance5" value="Present" />Present
+              <input type="radio" name="attendance5" value="Absent" />Absent
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+  </body>
 
 </html>

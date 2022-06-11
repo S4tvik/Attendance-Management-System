@@ -1,23 +1,68 @@
-<!-- this is teachers class page -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <h2 name="uname">
-    <%=uname%>
-  </h2>
-  <h4>10-06-2022 <a href="/teacher-form1">ENTER ATTENDANCE</a></h4>
-  <h4>11-06-2022 <a href="/teacher-form2">ENTER ATTENDANCE</a></h4>
-  <h4>12-06-2022 <a href="/teacher-form3">ENTER ATTENDANCE</a></h4>
-  <h4>13-06-2022 <a href="/teacher-form4">ENTER ATTENDANCE</a></h4>
-  <h4>14-06-2022 <a href="/teacher-form5">ENTER ATTENDANCE</a></h4>
+  <nav class="navbar" style="background-color: #faf1f9">
+    <div class="container-fluid">
+      <h4 style="font-family: 'Joan', serif">Attendace Management System</h4>
+      <a class="btn btn-primary" href="/teacher-home" role="button">back</a>
+    </div>
+  </nav>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">sno</th>
+        <th scope="col">DATE</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>date1</td>
+        <td>
+          <a class="btn btn-primary" href="/teacher-form" role="button">ENTER ATTENDANCE</a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>date2</td>
+        <td>
+          <a class="btn btn-primary" href="/teacher-form" role="button">ENTER ATTENDANCE</a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>date2</td>
+        <td>
+          <a class="btn btn-primary" href="/teacher-form" role="button">ENTER ATTENDANCE</a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>date2</td>
+        <td>
+          <a class="btn btn-primary" href="/teacher-form" role="button">ENTER ATTENDANCE</a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>date2</td>
+        <td>
+          <a class="btn btn-primary" href="/teacher-form" role="button">ENTER ATTENDANCE</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 
 </html>
