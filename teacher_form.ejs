@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h2 name="uname"><%=uname%></h2>
+
+  <h2 id="date"><%=date%></h2>
+  <form action="/attendance-submit" method="post">
+    <label id="name1" name="name1">160120733003</label>
+    <input type="radio" name="attendance1" checked="true" value="1" >Present
+    <input type="radio" name="attendance1" value="0" >Absent
+    <br />
+    <label id="name2" name="name2">160120733004</label>
+    <input type="radio" name="attendance2" checked="true" value="1" >Present
+    <input type="radio" name="attendance2" value="0" >Absent
+    <br />
+    <label id="name3" name="name3">160120733035</label>
+    <input type="radio" name="attendance3" checked="true" value="1" >Present
+    <input type="radio" name="attendance3" value="0" >Absent
+    <br />
+    <label id="name4" name="name4">160120733037</label>
+    <input type="radio" name="attendance4" checked="true" value="1" >Present
+    <input type="radio" name="attendance4" value="0" >Absent
+    <br />
+    <label id="name5" name="name5">160120733049</label>
+    <input type="radio" name="attendance5" checked="true" value="1" >Present
+    <input type="radio" name="attendance5" value="0" >Absent
+    <br />
+    <label id="name6" name="name6">160120733050</label>
+    <input type="radio" name="attendance6" checked="true" value="1" >Present
+    <input type="radio" name="attendance6" value="0" >Absent
+    <br>
+    <input type="submit">
+  </form>
+</body>
+
+</html>
