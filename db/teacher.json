@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "62a0126f54183b3bf508a838"
+  },
+  "tid": "1001",
+  "name": "sir srikanth",
+  "course": "iwt"
+},{
+  "_id": {
+    "$oid": "62a012d00d803c2c5e0babaf"
+  },
+  "tid": "1002",
+  "name": "abdul bari",
+  "course": "daa"
+}]

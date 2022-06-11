@@ -1,0 +1,90 @@
+<html lang="en">
+  <head>
+    <head>
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <body>
+      <nav class="navbar" style="background-color: #faf1f9">
+        <div class="container-fluid">
+          <h4 style="font-family: 'Joan', serif">Attendace Management System</h4>
+          <a class="btn btn-primary" href="/teacher-class" role="button"
+            >back</a
+          >
+        </div>
+      </nav>
+   
+    <form action="/attendance-submit" method="post">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">sno</th>
+            <th scope="col">NAME OF THE STUDENT</th>
+            <th>present/absent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>ALLUKA</td>
+            <td>
+              <input type="radio" name="attendance1" value="Present" />Present
+      <input type="radio" name="attendance1" value="Absent" />Absent
+      <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            
+            <td>HINA</td>
+            <td>
+              <input type="radio" name="attendance2" value="Present" />Present
+      <input type="radio" name="attendance2" value="Absent" />Absent
+      <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td> AMMO</td>
+            <td>
+              <input type="radio" name="attendance3" value="Present" />Present
+      <input type="radio" name="attendance3" value="Absent" />Absent
+      <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            
+            <td>KAT</td>
+            <td>
+              <input type="radio" name="attendance4" value="Present" />Present
+      <input type="radio" name="attendance4" value="Absent" />Absent
+      <br />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>GRAY</td>
+            <td>
+              <input type="radio" name="attendance5" value="Present" />Present
+      <input type="radio" name="attendance5" value="Absent" />Absent
+      <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+  </body>
+</html>

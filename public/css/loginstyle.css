@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image:    url(peachbg.jpg);
+    background-size:     cover;                      
+    background-repeat:   no-repeat;
+    background-position: center center;
+    font-family: sans-serif;
+}
+.title{
+    text-align: center;
+    padding: 50px 0 20px;
+}
+.title h1{
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    font-family: 'Joan', serif;
+}
+.container{
+    width: 70%;
+    height: 550px;
+    background: white;
+    margin: 0 auto;
+    border: 2px solid white;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .5);
+}
+.container .left{
+    float: left;
+    width: 57%;
+    height: 550px;
+    background: url(undraw_online_stats_0g94.png);
+    background-size: cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    box-sizing: border-box;
+}
+.container .right{
+    float: right;
+    width: 43%;
+    height: 550px;
+    box-sizing: border-box;
+}
+.box h1{
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.box{
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    padding: 120px;
+}
+.box input[type = "text"],.box input[type = "password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid rgb(117, 46, 41);
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+    border-color: coral;
+    width: 250px;
+    
+}
+.box input[type = "submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid coral;
+    padding: 14px 40px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.box input[type = "submit"]:hover{
+    background: coral;
+}
