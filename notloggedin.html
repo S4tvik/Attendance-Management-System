@@ -1,15 +1,29 @@
-<!-- this page is when user is not loggedin and tries to access stuff -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>to access that file u hv to login</h2>
-    <h2>u r not logged in </h2>
-    <a href="/">to login click me</a>
-</body>
+<!-- this page is login page -->
+<html>
+    <head>
+        <title>login</title>
+        <link rel="stylesheet" href="css/loginstyle1.css">
+        <style>
+        @import url("https://fonts.googleapis.com/css2?family=Joan&display=swap%22");
+    
+        </style>
+    </head>
+    <body>
+        <div class = "title">
+            <h1>Attendance Management System</h1>
+        </div>
+        <div class="container">
+            <div class="left"></div>
+            <div class="right">
+                <form class="box" action = "/check" method="post">
+                    <h1 style="font-family: 'Joan', serif;">Login</h1>
+                    <input type="text" name="username" placeholder="Username">
+                    
+                    <input type="password" name="password" placeholder="Password">
+                    <p>You are not logged in</p>
+                    <input type="submit" name="" value="Login">
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
