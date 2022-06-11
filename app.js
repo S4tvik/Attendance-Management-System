@@ -78,7 +78,7 @@ app.post('/check', function (req, res) {
             var query = { username: uname };
             dbo.collection("login").find(query).toArray(function (err, result) {
                 if (result.length == 0) {
-                    res.send('Incorrect username  or password');
+                    res.sendFile(__dirname +'/login1.html')
                 }
                 else {
                     if (err) throw err;
