@@ -145,7 +145,8 @@ app.get('/student-home', function (req, res) {
                 }
                 var percentage2 = total_classes_attended * 100 / length2;
                 percentage = ((percentage1 * length1 + percentage2 * length2) / (length1 + length2)).toFixed(2);
-                res.render(__dirname + "/student_home.ejs", { percentage: percentage, uname: uname, percentage1: percentage1, percentage2: percentage2 });
+                res.render(__dirname + "/student_home.ejs",
+                { percentage: percentage, uname: uname, percentage1: percentage1, percentage2: percentage2 , length1: length1 , length2 : length2});
             });
             db.close;
         });
@@ -155,7 +156,7 @@ app.get('/student-home', function (req, res) {
 });
 app.get('/logout', function (req, res) {
     req.session.loggedin = false;
-    res.sendFile(__dirname + "/login.html");
+    res.sendFile(__dirname+"/login.html");
 });
 app.get('/teacher-home', function (req, res) {
     if (req.session.loggedin && req.session.type == "teacher") {
@@ -170,6 +171,13 @@ app.get('/teacher-class', function (req, res) {
         res.render(__dirname + "/teacher_class.ejs", { uname: uname });
     } else {
         res.sendFile(__dirname + "/notloggedin.html");
+    }
+});
+app.get('/teacher-class2', function (req, res) {
+    if (req.session.loggedin) {
+        res.render(__dirname + "/teacher_class2.ejs", { uname: uname });
+    } else {
+        res.sendfile("notloggedin.html");
     }
 });
 app.get('/teacher-form', function (req, res) {
@@ -220,6 +228,14 @@ app.get('/teacher-form5', function (req, res) {
         res.sendFile(__dirname + "/notloggedin.html");
     }
 });
+app.get('/teacher-form-ece2', function (req, res) {
+    if (req.session.loggedin) {
+        date = req.session.date;
+        res.render(__dirname + "/teacher_form2.ejs", { date: date });
+    } else {
+        res.sendFile(__dirname+"/notloggedin.html");
+    }
+});
 app.post('/attendance-submit', function (req, res) {
     if (req.session.loggedin) {
         tid = req.session.username;
@@ -267,4 +283,10 @@ app.post('/attendance-submit', function (req, res) {
     }
 });
 
-app.listen(3000);
+app.use((req, res, next) => {
+    res.status(404).sendfile("404notfound.html")
+  })
+
+app.listen(3000, function () {
+    console.log('app listening on port 3000!');
+});
