@@ -284,7 +284,7 @@ app.post('/attendance-submit', function (req, res) {
 });
 
 app.use((req, res, next) => {
-    res.status(404).sendfile("404notfound.html")
+    res.status(404).sendFile(__dirname+"/404notfound.html")
 })
 
 app.listen(3000, function () {
