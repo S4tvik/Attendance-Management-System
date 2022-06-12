@@ -148,6 +148,13 @@ app.get('/teacher-class', function (req, res) {
         res.sendfile("notloggedin.html");
     }
 });
+app.get('/teacher-class2', function (req, res) {
+    if (req.session.loggedin) {
+        res.render(__dirname + "/teacher_class2.ejs", { uname: uname });
+    } else {
+        res.sendfile("notloggedin.html");
+    }
+});
 app.get('/teacher-form', function (req, res) {
     if (req.session.loggedin) {
         date = req.session.date;
@@ -156,42 +163,10 @@ app.get('/teacher-form', function (req, res) {
         res.sendfile("notloggedin.html");
     }
 });
-app.get('/teacher-form1', function (req, res) {
-    if (req.session.loggedin) {
-        req.session.date = "10-06-2022";
-        res.redirect("/teacher-form");
-    } else {
-        res.sendfile("notloggedin.html");
-    }
-});
 app.get('/teacher-form2', function (req, res) {
     if (req.session.loggedin) {
-        req.session.date = "11-06-2022";
-        res.redirect("/teacher-form");
-    } else {
-        res.sendfile("notloggedin.html");
-    }
-});
-app.get('/teacher-form3', function (req, res) {
-    if (req.session.loggedin) {
-        req.session.date = "12-06-2022";
-        res.redirect("/teacher-form");
-    } else {
-        res.sendfile("notloggedin.html");
-    }
-});
-app.get('/teacher-form4', function (req, res) {
-    if (req.session.loggedin) {
-        req.session.date = "13-06-2022";
-        res.redirect("/teacher-form");
-    } else {
-        res.sendfile("notloggedin.html");
-    }
-});
-app.get('/teacher-form5', function (req, res) {
-    if (req.session.loggedin) {
-        req.session.date = "14-06-2022";
-        res.redirect("/teacher-form");
+        date = req.session.date;
+        res.render(__dirname + "/teacher_form2.ejs", { date: date });
     } else {
         res.sendfile("notloggedin.html");
     }
@@ -243,4 +218,11 @@ app.post('/attendance-submit', function (req, res) {
     }
 });
 
-app.listen(3000);
+app.use((req, res, next) => {
+    res.status(404).sendfile("404notfound.html")
+  })
+
+
+app.listen(3000, function () {
+    console.log('app listening on port 3000!');
+})
