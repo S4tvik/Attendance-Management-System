@@ -154,6 +154,16 @@ app.get('/student-home', function (req, res) {
         res.sendFile(__dirname + "/notloggedin.html");
     }
 });
+
+app.get('/calendar', function (req, res) {
+    if (req.session.loggedin && req.session.type == "student") {
+        uname = req.session.username;
+        res.render(__dirname + "/calendar.ejs");
+    } else {
+        res.sendFile(__dirname + "/notloggedin.html");
+    }
+});
+
 app.get('/logout', function (req, res) {
     req.session.loggedin = false;
     res.sendFile(__dirname + "/login.html");
