@@ -1,97 +1,93 @@
 <html lang="en">
+
+<head>
+
   <head>
-    <head>
-      <link rel="stylesheet" href="style.css">
-      <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </head>
-    <body style="font-family: 'Joan', serif">
-      <nav class="navbar " style="background-color: #00468B">
-        <div class="container-fluid text-light">
-          <h4 style="font-family: 'Joan', serif">Attendace Management System</h4>
-          <a class="btn btn-primary bg bg-warning" href="/teacher-class" role="button"
-            >back</a
-          >
-        </div>
-      </nav>
-      
-    <div class = " container text-center">
-        <br><br>
-        <h2>Attendance Sheet of CSE</h2>
-        <br><br>
+
+<body style="font-family: 'Joan', serif">
+  <nav class="navbar " style="background-color: #00468B">
+    <div class="container-fluid text-light">
+      <h4 style="font-family: 'Joan', serif">Attendace Management System</h4>
+      <a class="btn btn-primary bg bg-warning" href="/teacher-class" role="button">back</a>
     </div>
-    <form action="/attendance-submit" method="post">
-      <table class="table text-center">
-        <thead>
-          <tr>
-            <th scope="col">S.No.</th>
-            <th scope="col">Name</th>
-            <th colspan="2">Attendance</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Manoj</td>
-            <td><input class= "form-check-input bg-success" type="radio" name="attendance1" value="Present" />Present</td>
-            <td><input class= "form-check-input bg-danger" type="radio" name="attendance1" value="Absent" />Absent</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            
-            <td>Gray</td>
-            <td><input class= "form-check-input bg-success"  type="radio" name="attendance2" value="Present" />Present</td>
-            <td><input class= "form-check-input bg-danger" type="radio" name="attendance2" value="Absent" />Absent</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td> Pavan</td>
-            <td ><input class= "form-check-input bg-success"  type="radio" name="attendance3" value="Present" />Present</td>
-            <td><input class= "form-check-input bg-danger" type="radio" name="attendance3" value="Absent" />Absent</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Pronav</td>
-            <td><input class= "form-check-input bg-success" type="radio" name="attendance4" value="Present" />Present</td>
-            <td><input class= "form-check-input bg-danger" type="radio" name="attendance4" value="Absent" />Absent</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Sadik</td>
-            <td><input class= "form-check-input bg-success"  type="radio" name="attendance5" value="Present" />Present</td>
-            <td><input class= "form-check-input bg-danger" type="radio" name="attendance5" value="Absent" />Absent</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Shahbaz</td>
-            <td><input class= "form-check-input bg-success"  type="radio" name="attendance6" value="Present" />Present</td>
-            <td><input class= "form-check-input bg-danger" type="radio" name="attendance6" value="Absent" />Absent</td>
-          </tr>
-        </tbody>
-      </table>
-     
-      <div class="container text-center">
-        <button  class= "btn btn-primary bg-success " type="submit">Submit</button>
+  </nav>
+
+  <div class=" container text-center">
+    <br><br>
+    <h2>Attendance Sheet of CSE</h2>
+    <br><br>
+  </div>
+  <form action="/attendance-submit" method="post">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">S.No.</th>
+          <th scope="col">Name</th>
+          <th colspan="2">Attendance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Manoj</td>
+          <td><input class="form-check-input bg-success" type="radio" name="attendance1" value="Present" />Present</td>
+          <td><input class="form-check-input bg-danger" type="radio" name="attendance1" value="Absent" />Absent</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+
+          <td>Gray</td>
+          <td><input class="form-check-input bg-success" type="radio" name="attendance2" value="Present" />Present</td>
+          <td><input class="form-check-input bg-danger" type="radio" name="attendance2" value="Absent" />Absent</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td> Pavan</td>
+          <td><input class="form-check-input bg-success" type="radio" name="attendance3" value="Present" />Present</td>
+          <td><input class="form-check-input bg-danger" type="radio" name="attendance3" value="Absent" />Absent</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Pronav</td>
+          <td><input class="form-check-input bg-success" type="radio" name="attendance4" value="Present" />Present</td>
+          <td><input class="form-check-input bg-danger" type="radio" name="attendance4" value="Absent" />Absent</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Sadik</td>
+          <td><input class="form-check-input bg-success" type="radio" name="attendance5" value="Present" />Present</td>
+          <td><input class="form-check-input bg-danger" type="radio" name="attendance5" value="Absent" />Absent</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Shahbaz</td>
+          <td><input class="form-check-input bg-success" type="radio" name="attendance6" value="Present" />Present</td>
+          <td><input class="form-check-input bg-danger" type="radio" name="attendance6" value="Absent" />Absent</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="container text-center">
+      <button class="btn btn-primary bg-success " type="submit">Submit</button>
     </div>
-        
-    </form>
-  </body>
+
+  </form>
+</body>
+
 </html>
 <!-- fade in/out animations-->
 <script src="https://unpkg.com/aos@next/dist/aos.js%22%3E"></script>
-  <script>
-    AOS.init({
-      Duration:3000,
-      once: true
-    });
-  </script>
-  <!-- Particles.js -->
+<script>
+  AOS.init({
+    Duration: 3000,
+    once: true
+  });
+</script>
+<!-- Particles.js -->
