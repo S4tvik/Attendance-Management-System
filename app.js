@@ -107,30 +107,48 @@ app.post('/check', function (req, res) {
 });
 
 app.get('/student-home', function (req, res) {
-    if (req.session.loggedin) {
+    if (req.session.loggedin && req.session.type == "student") {
         uname = req.session.username;
+        var percentage = 0;
+        var length1 = 0
+        var percentage1 = 0;
+        var length2 = 0;
+        var percentage2 = 0;
         MongoClient.connect(url, function (err, db) {
             if (err) throw err;
             dbo = db.db("firstdb");
-            var query = { sid: uname };
-            dbo.collection("attendance").find(query).toArray(function (err, result) {
+            var query = { sid: uname, course: "iwt" };
+            dbo.collection("attendance").find(query).toArray(function (err, result1) {
                 if (err) throw err;
                 var total_classes_attended = 0;
-                for (let i = 0; i < result.length; i++) {
-                    if (result[i].present == "1") {
+                length1 = result1.length;
+                for (let i = 0; i < length1; i++) {
+                    if (result1[i].present == "1") {
                         total_classes_attended += 1;
                     }
                 }
-                // console.log(result.length);
-                // console.log(total_classes_attended);
-                var percent = total_classes_attended * 100 / result.length;
-                var percentage=parseFloat(percent).toFixed(2)+"%";
-                res.render(__dirname + "/student_home.ejs", { percentage: percentage, uname: uname });
-                db.close;
+                percentage1 = total_classes_attended * 100 / length1;
+
             });
+
+            var query = { sid: uname, course: "daa" };
+            dbo.collection("attendance").find(query).toArray(function (err, result2) {
+                if (err) throw err;
+                var total_classes_attended = 0;
+                length2 = result2.length;
+                for (let i = 0; i < length2; i++) {
+                    if (result2[i].present == "1") {
+                        total_classes_attended += 1;
+                    }
+                }
+                var percentage2 = total_classes_attended * 100 / length2;
+                percentage = ((percentage1 * length1 + percentage2 * length2) / (length1 + length2)).toFixed(2);
+                res.render(__dirname + "/student_home.ejs", { percentage: percentage, uname: uname, percentage1: percentage1, percentage2: percentage2 });
+            });
+            db.close;
         });
     } else {
-        res.sendfile("notloggedin.html");
+        res.sendFile(__dirname + "/notloggedin.html");
     }
 });
 app.get('/teacher-home', function (req, res) {
@@ -163,7 +181,47 @@ app.get('/teacher-form', function (req, res) {
         res.sendfile("notloggedin.html");
     }
 });
+app.get('/teacher-form1', function (req, res) {
+    if (req.session.loggedin && req.session.type == "teacher") {
+        req.session.date = "10-06-2022";
+        res.redirect("/teacher-form");
+    } else {
+        res.sendFile(__dirname + "/notloggedin.html");
+    }
+});
 app.get('/teacher-form2', function (req, res) {
+    if (req.session.loggedin && req.session.type == "teacher") {
+        req.session.date = "11-06-2022";
+        res.redirect("/teacher-form");
+    } else {
+        res.sendFile(__dirname + "/notloggedin.html");
+    }
+});
+app.get('/teacher-form3', function (req, res) {
+    if (req.session.loggedin && req.session.type == "teacher") {
+        req.session.date = "12-06-2022";
+        res.redirect("/teacher-form");
+    } else {
+        res.sendFile(__dirname + "/notloggedin.html");
+    }
+});
+app.get('/teacher-form4', function (req, res) {
+    if (req.session.loggedin && req.session.type == "teacher") {
+        req.session.date = "13-06-2022";
+        res.redirect("/teacher-form");
+    } else {
+        res.sendFile(__dirname + "/notloggedin.html");
+    }
+});
+app.get('/teacher-form5', function (req, res) {
+    if (req.session.loggedin && req.session.type == "teacher") {
+        req.session.date = "14-06-2022";
+        res.redirect("/teacher-form");
+    } else {
+        res.sendFile(__dirname + "/notloggedin.html");
+    }
+});
+app.get('/teacher-form-ece2', function (req, res) {
     if (req.session.loggedin) {
         date = req.session.date;
         res.render(__dirname + "/teacher_form2.ejs", { date: date });
